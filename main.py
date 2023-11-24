@@ -30,7 +30,7 @@ while 1:
             f = open(file, "r")
             concat_strings = to_string(f, presents)
             f.close()
-            print(f"Incolla:\n{concat_strings}")
+            print(yellow, "Incolla:", reset, f"\n{concat_strings}")
         case '2':
             print(add_mail())
         case _:

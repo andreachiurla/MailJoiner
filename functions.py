@@ -22,6 +22,7 @@ def to_string(f, presents):
 
         if line == "":
             return concat_strings
+
         for present in presents:
             if int(line[0]) == present:
                 line = line.replace("\n", "")
