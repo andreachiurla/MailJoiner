@@ -22,8 +22,8 @@ def to_string(f, presents):
 
         if line == "":
             return concat_strings
-        for x in range(len(presents)):
-            if int(line[0]) == presents[x]:
+        for present in presents:
+            if int(line[0]) == present:
                 line = line.replace("\n", "")
                 line = line[2:]
                 concat_strings += separator + line
