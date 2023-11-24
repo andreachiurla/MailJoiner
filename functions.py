@@ -1,9 +1,12 @@
 def to_string(f):
+    concat_strings = ""
     while 1:
         line = f.readline()
         if line == "":
-            break
-        print("Ho letto: ", line)
+            return concat_strings
+        line = line.replace("\n", "")
+        line = line[2:]
+        concat_strings += line + ", "
 
 
 def add_mail():

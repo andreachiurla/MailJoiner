@@ -27,8 +27,9 @@ while 1:
             break
         case '1':
             f = open(file, "r")
-            print(to_string(f))
+            concat_strings = to_string(f)
             f.close()
+            print(f"Incolla:\n {concat_strings}")
         case '2':
             print(add_mail())
         case _:
