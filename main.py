@@ -26,10 +26,11 @@ while 1:
             print(red, "Chiudo il programma...\n", reset)
             break
         case '1':
+            presents = ask_present()
             f = open(file, "r")
-            concat_strings = to_string(f)
+            concat_strings = to_string(f, presents)
             f.close()
-            print(f"Incolla:\n {concat_strings}")
+            print(f"Incolla:\n{concat_strings}")
         case '2':
             print(add_mail())
         case _:
