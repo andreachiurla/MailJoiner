@@ -23,7 +23,7 @@ def to_string(f, presents):
         if line == "":
             return concat_strings
         for x in range(len(presents)):
-            if int(line[0]) == presents[x - 1]:
+            if int(line[0]) == presents[x]:
                 line = line.replace("\n", "")
                 line = line[2:]
                 concat_strings += separator + line
