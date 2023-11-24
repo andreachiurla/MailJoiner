@@ -1,5 +1,9 @@
-def to_string():
-    return "bro i'm not done"
+def to_string(f):
+    while 1:
+        line = f.readline()
+        if line == "":
+            break
+        print("Ho letto: ", line)
 
 
 def add_mail():
