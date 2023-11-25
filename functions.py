@@ -37,10 +37,15 @@ def add_mail(f):
     str = ""
 
     while 1:
-        mail_to_add = input("Inserisci un indirizzo mail: ")
+        mail_to_add = input(yellow + "Inserisci un indirizzo mail: " + reset)
         if mail_to_add == "":
             break
-        address_list.append("\n" + mail_to_add)
-        print(address_list)
+        n_address = input(yellow + "Inserisci il numero identificativo: " + reset)
+        if is_free(f, n_address):
+            address_list.append("\n" + mail_to_add)
+            print(address_list)
+        else:
+            print(red, "Numero già utilizzato", reset)
+
 
     f.writelines(address_list)
