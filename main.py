@@ -17,12 +17,12 @@ while 1:
     print(green + "--- COMANDI ---", reset)
     print("-Richiedi stringa mail dei presenti ", yellow,  "[1]", reset)
     print("-Aggiungi mail ", yellow, "[2]" + reset)
-    print("-Esci dal programma ", yellow + "[1]", reset, "\n")
+    print("-Esci dal programma ", yellow + "[0]", reset, "\n")
 
     userRequest = input(yellow + "Inserisci comando: " + reset)
 
     match userRequest:
-        case '3':
+        case '0':
             print(red, "Chiudo il programma...\n", reset)
             break
         case '1':
@@ -32,7 +32,9 @@ while 1:
             f.close()
             print(yellow, "Incolla:", reset, f"\n{concat_strings}")
         case '2':
-            print(add_mail())
+            f = open(file, "a+")
+            print(add_mail(f))
+            f.close()
         case _:
             print(red, "Input inserito non valido", reset)
 

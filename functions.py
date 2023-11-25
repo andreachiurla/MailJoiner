@@ -32,6 +32,15 @@ def to_string(f, presents):
                 break
 
 
-def add_mail():
-    return "i've added a mail (joking -_-)"
+def add_mail(f):
+    address_list = []
+    str = ""
 
+    while 1:
+        mail_to_add = input("Inserisci un indirizzo mail: ")
+        if mail_to_add == "":
+            break
+        address_list.append("\n" + mail_to_add)
+        print(address_list)
+
+    f.writelines(address_list)
