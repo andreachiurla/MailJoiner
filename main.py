@@ -18,7 +18,7 @@ while 1:
     print("-Esci dal programma ", yellow + "[0]", reset)
     print("-Richiedi stringa mail dei presenti ", yellow,  "[1]", reset)
     print("-Aggiungi mail ", yellow, "[2]" + reset)
-    print("-Esci dal programma ", yellow + "[0]", reset, "\n")
+    print("")
 
     userRequest = input(yellow + "Inserisci comando: " + reset)
 

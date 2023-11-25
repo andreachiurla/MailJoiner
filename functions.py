@@ -1,3 +1,10 @@
+# COLORS
+green = '\u001b[92m'
+red = '\u001b[31m'
+underline = '\u001b[4m'
+yellow = "\033[93m"
+reset = "\033[0m"
+
 def ask_present():
     presents = []
     y = 1
@@ -23,6 +30,7 @@ def to_string(f, presents):
         if line == "":
             return concat_strings
 
+        line = search_in_file(f, line[0])
         for present in presents:
             if int(line[0]) == present:
                 line = line.replace("\n", "")
@@ -49,3 +57,7 @@ def add_mail(f):
 
 
     f.writelines(address_list)
+
+
+def search_in_file(f, to_search):
+    return "linea file"
