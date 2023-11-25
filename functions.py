@@ -6,7 +6,7 @@ yellow = "\033[93m"
 reset = "\033[0m"
 
 
-def ask_present():
+def ask_present(f):
     presents = []
     y = 1
     while 1:
@@ -14,9 +14,12 @@ def ask_present():
         if user == '0':
             break
         if user != '':
-            presents.append(int(user))
-            print(presents)
-            y += 1
+            if search_in_file(f, user):
+                presents.append(int(user))
+                print(presents)
+                y += 1
+            else:
+                print(red, "Identificatore non trovato", reset)
 
     return presents
 
@@ -24,15 +27,13 @@ def ask_present():
 def to_string(f, presents):
     concat_strings = ""
     separator = ""
-
+    f.seek(0)
     while 1:
         line = f.readline()
-
         if line == "":
             return concat_strings
-
         for present in presents:
-            if int(line[0]) == present:
+            if int(line[0]) == int(present):
                 line = line.replace("\n", "")
                 line = line[2:]
                 concat_strings += separator + line
@@ -66,5 +67,5 @@ def search_in_file(f, to_search):
         line = f.readline()
         if line == "":
             return False
-        if int(line[0]) == to_search:
+        if line[0] == to_search:
             return True

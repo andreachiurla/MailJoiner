@@ -27,8 +27,8 @@ while 1:
             print(red, "Chiudo il programma...\n", reset)
             break
         case '1':
-            presents = ask_present()
             f = open(file, "r")
+            presents = ask_present(f)
             concat_strings = to_string(f, presents)
             f.close()
             print(yellow, "Incolla:", reset, f"\n{concat_strings}")
