@@ -14,10 +14,12 @@ f = open(file, "a")
 f.close()
 
 while 1:
+    # print commands list
     print(green + "--- COMANDI ---", reset)
     print("-Esci dal programma ", yellow + "[0]", reset)
     print("-Richiedi stringa mail dei presenti ", yellow,  "[1]", reset)
-    print("-Aggiungi mail ", yellow, "[2]" + reset)
+    print("-Aggiungi mail ", yellow, "[2]", reset)
+    print("-Elimina tutte le mail ", yellow, "[404]", reset)
     print("")
 
     userRequest = input(yellow + "Inserisci comando: " + reset)
@@ -36,6 +38,15 @@ while 1:
             f = open(file, "a+")
             print(add_mail(f))
             f.close()
+        case '404':
+            user = input(yellow + "Digita 'si' per confermare il reset del file: " + reset)
+            if user.lower() == 'si':
+                f = open(file, "w")
+                print(red, "Reset eseguito con successo", reset)
+                f.close()
+            else:
+                print(red, "Reset non eseguito", reset)
+
         case _:
             print(red, "Input inserito non valido", reset)
 
