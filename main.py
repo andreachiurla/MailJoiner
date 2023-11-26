@@ -33,7 +33,6 @@ while 1:
             presents = ask_present(f)
             concat_strings = to_string(f, presents)
             f.close()
-            print(yellow, "Incolla:", reset, f"\n{concat_strings}")
             if concat_strings != "":
                 print(yellow, "Incolla:", reset, f"\n{concat_strings}")
         case '2':
