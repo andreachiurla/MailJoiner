@@ -50,8 +50,9 @@ def add_mail(f):
             break
         while 1:
             n_address = input(yellow + "Inserisci il numero identificativo: " + reset)
-            if not search_in_file(f, n_address):    # if the number hasn't been used yet
+            if not search_in_file(f, n_address) and not search_in_list(address_list, n_address):  # if the number hasn't been used yet
                 address_list.append(n_address + " " + mail_to_add + "\n")
+                print()
                 break
             else:
                 print(red, "Numero già utilizzato", reset)
@@ -69,3 +70,10 @@ def search_in_file(f, to_search):
             return False
         if line[0] == to_search:
             return True
+
+
+def search_in_list(list, to_search):
+    for element in list:
+        if element[0] == to_search:
+            return True
+    return False
