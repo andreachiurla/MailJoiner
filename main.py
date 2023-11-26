@@ -34,6 +34,8 @@ while 1:
             concat_strings = to_string(f, presents)
             f.close()
             print(yellow, "Incolla:", reset, f"\n{concat_strings}")
+            if concat_strings != "":
+                print(yellow, "Incolla:", reset, f"\n{concat_strings}")
         case '2':
             f = open(file, "a+")
             print(add_mail(f))
