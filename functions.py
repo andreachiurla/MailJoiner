@@ -13,7 +13,9 @@ def ask_present(f):
         user = input(f"Presente {y}: ")
         if user == '0':
             break
-        if user != '':
+        elif user.isalpha():
+            print(red, "Per favore, inserisci un numero intero", reset)
+        elif user != '':
             if presents.count(int(user)) != 0:
                 print(red, "Mail già aggiunta", reset)
             elif search_in_file(f, user):
@@ -52,7 +54,9 @@ def add_mail(f):
             break
         while 1:
             n_address = input(yellow + "Inserisci il numero identificativo: " + reset)
-            if not search_in_file(f, n_address) and not search_in_list(address_list, n_address):  # if the number hasn't been used yet
+            if n_address.isalpha():
+                print(red, "Per favore, inserisci un numero intero", reset)
+            elif not search_in_file(f, n_address) and not search_in_list(address_list, n_address):  # if the number hasn't been used yet
                 address_list.append(n_address + " " + mail_to_add + "\n")
                 print()
                 break
