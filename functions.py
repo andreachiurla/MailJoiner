@@ -43,7 +43,6 @@ def to_string(f, presents):
 
 def add_mail(f):
     address_list = []
-    str = ""
 
     while 1:
         mail_to_add = input(yellow + "Inserisci un indirizzo mail: " + reset)
@@ -63,6 +62,7 @@ def add_mail(f):
 # Searches int in a file
 # If 'to_search' is in the first position of the line returns True, otherwise False
 def search_in_file(f, to_search):
+    f.seek(0)
     while 1:
         line = f.readline()
         if line == "":
