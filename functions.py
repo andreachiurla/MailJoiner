@@ -14,7 +14,9 @@ def ask_present(f):
         if user == '0':
             break
         if user != '':
-            if search_in_file(f, user):
+            if presents.count(int(user)) != 0:
+                print(red, "Mail già aggiunta", reset)
+            elif search_in_file(f, user):
                 presents.append(int(user))
                 print(presents)
                 y += 1
