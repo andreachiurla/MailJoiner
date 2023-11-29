@@ -1,4 +1,6 @@
 from functions import *
+import pyperclip
+import time
 
 # COLORS
 green = '\u001b[92m'
@@ -34,7 +36,10 @@ while 1:
             concat_strings = to_string(f, presents)
             f.close()
             if concat_strings != "":
-                print(yellow, "Incolla:", reset, f"\n{concat_strings}")
+                print(yellow, "Mail unite:", reset, f"\n{concat_strings}")
+                pyperclip.copy(concat_strings)
+                print(green, "Copiato negli appunti", reset)
+                time.sleep(2)
         case '2':
             f = open(file, "a+")
             print(add_mail(f))
