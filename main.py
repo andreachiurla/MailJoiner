@@ -48,7 +48,7 @@ while 1:
                 time.sleep(2)
         case '2':
             f = open(file, "a+")
-            print(add_mail(f))
+            print(add_mail(file))
             f.close()
         case '404':
             user = input(yellow + "Digita 'si' per confermare il reset del file: " + reset)

@@ -45,25 +45,30 @@ def to_string(f, presents):
                 break
 
 
-def add_mail(f):
+def add_mail(file):
     address_list = []
 
     while 1:
         mail_to_add = input(yellow + "Inserisci un indirizzo mail: " + reset)
+
         if mail_to_add == "":
             break
         while 1:
-            n_address = input(yellow + "Inserisci il numero identificativo: " + reset)
+            f = open(file, "r")
+            print(yellow + f"Inserisci il numero identificativo (id maggiore nel file: {larger_id_number(f)})" + reset, end=": ")
+            f.close()
+            n_address = input()
+
+            f = open(file, "a+")
             if n_address.isalpha():
                 print(red, "Per favore, inserisci un numero intero", reset)
-            elif not search_in_file(f, n_address) and not search_in_list(address_list, n_address):  # if the number hasn't been used yet
-                address_list.append(n_address + " " + mail_to_add + "\n")
+            elif not search_in_file(f, n_address) and not search_in_list(address_list, n_address):      # if the number hasn't been used yet
+                f.write(n_address + " " + mail_to_add + "\n")
                 print()
                 break
             else:
                 print(red, "Numero già utilizzato", reset)
-
-    f.writelines(address_list)
+            f.close()
 
 
 # Searches int in a file
@@ -86,7 +91,6 @@ def search_in_list(list, to_search):
 
 
 def count_addresses(f):
-    line = ""
     occorrences = 0
     while 1:
         line = f.readline()
@@ -94,4 +98,17 @@ def count_addresses(f):
             return occorrences
         if line[0].isnumeric():
             occorrences += 1
+
+
+def larger_id_number(f):
+    larger = 0
+    while 1:
+        line = f.readline()
+        if line == '':
+            break
+        if int(line[0]) > larger:
+            larger = int(line[0])
+
+    return larger
+
 
