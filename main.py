@@ -15,11 +15,17 @@ file = "AddressList.txt"
 f = open(file, "a")
 f.close()
 
+
 while 1:
+    # count how many email addresses there are in the file
+    f = open(file, "r")
+    many_addresses = count_addresses(f)
+    f.close()
+
     # print commands list
     print(green + "--- COMANDI ---", reset)
     print("-Esci dal programma ", yellow + "[0]", reset)
-    print("-Richiedi stringa mail dei presenti ", yellow,  "[1]", reset)
+    print(f"-Richiedi stringa mail dei presenti ({many_addresses} mail)", yellow,  "[1]", reset)
     print("-Aggiungi mail ", yellow, "[2]", reset)
     print("-Elimina tutte le mail ", yellow, "[404]", reset)
     print("")

@@ -83,3 +83,15 @@ def search_in_list(list, to_search):
         if element[0] == to_search:
             return True
     return False
+
+
+def count_addresses(f):
+    line = ""
+    occorrences = 0
+    while 1:
+        line = f.readline()
+        if line == "":
+            return occorrences
+        if line[0].isnumeric():
+            occorrences += 1
+
